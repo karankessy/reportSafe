@@ -19,12 +19,13 @@ export function ReportCard({ report }: ReportCardProps) {
 
   useEffect(() => {
     if (report.submittedAt) {
+      // Ensure this runs only on the client after hydration
       setFormattedDate(format(parseISO(report.submittedAt), 'MMM d, yyyy p'));
     }
   }, [report.submittedAt]);
 
   return (
-    <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-shadow duration-300">
       <CardHeader>
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg font-semibold">{report.title}</CardTitle>
