@@ -1,3 +1,6 @@
+
+'use client';
+
 import type { VulnerabilityReport } from '@/lib/types';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { SeverityBadge } from './severity-badge';
@@ -5,12 +8,21 @@ import { StatusBadge } from './status-badge';
 import { Button } from '@/components/ui/button';
 import { format, parseISO } from 'date-fns';
 import { ExternalLink, MessageSquare } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface ReportCardProps {
   report: VulnerabilityReport;
 }
 
 export function ReportCard({ report }: ReportCardProps) {
+  const [formattedDate, setFormattedDate] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (report.submittedAt) {
+      setFormattedDate(format(parseISO(report.submittedAt), 'MMM d, yyyy p'));
+    }
+  }, [report.submittedAt]);
+
   return (
     <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
       <CardHeader>
@@ -25,7 +37,7 @@ export function ReportCard({ report }: ReportCardProps) {
           {report.descriptionSummary || report.detailedDescription}
         </p>
         <div className="text-xs text-muted-foreground">
-          Submitted: {format(parseISO(report.submittedAt), 'MMM d, yyyy p')}
+          Submitted: {formattedDate || 'Loading date...'}
         </div>
       </CardContent>
       <CardFooter className="flex justify-between items-center">
