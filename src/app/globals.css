@@ -8,7 +8,7 @@ body {
 
 @layer base {
   :root {
-    --background: 210 17% 98%; /* #f8f9fa Soft Gray */
+    --background: 210 17% 98%; /* Soft Gray #f8f9fa */
     --foreground: 210 10% 23%; /* Dark Gray for text */
 
     --card: 0 0% 100%; /* White */
@@ -17,32 +17,32 @@ body {
     --popover: 0 0% 100%; /* White */
     --popover-foreground: 210 10% 23%; /* Dark Gray */
 
-    --primary: 217 82% 56%; /* #3477eb Moderate Blue */
+    --primary: 217 82% 56%; /* Moderate Blue #3477eb */
     --primary-foreground: 0 0% 100%; /* White */
 
-    --secondary: 210 16% 93%; /* Lighter Gray */
-    --secondary-foreground: 210 10% 23%; /* Dark Gray */
+    --secondary: 197 80% 64%; /* Aqua Blue #58CCED */
+    --secondary-foreground: 210 10% 23%; /* Dark text for Aqua */
 
-    --muted: 210 16% 90%; /* Light Muted Gray */
+    --muted: 351 100% 90%; /* Lighter Bubble-gum Pink #FFD6DB */
     --muted-foreground: 210 10% 45%; /* Muted Text Gray */
 
-    --accent: 260 83% 65%; /* #9060ed Purple */
-    --accent-foreground: 0 0% 100%; /* White */
+    --accent: 47 100% 68%; /* Duck Yellow #FFE15D */
+    --accent-foreground: 210 10% 23%; /* Dark text for Yellow */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 354 70% 53%; /* Vibrant Red #FF4D4D */
+    --destructive-foreground: 0 0% 100%; /* White */
 
     --border: 210 17% 88%; /* Border Gray */
     --input: 210 16% 93%; /* Input Background Gray */
     --ring: 217 82% 56%; /* Primary color for rings */
 
-    --radius: 0.5rem;
+    --radius: 0.85rem; /* Increased for bubbly feel */
 
-    /* Severity Colors (adjusted HSL to match hex codes precisely) */
-    --severity-critical: 354.6 70.1% 53.1%; /* #dc3545 Deep Red */
-    --severity-high: 27.9 98.1% 53.1%; /* #fd7e14 Bright Orange */
-    --severity-medium: 45 100% 51%; /* #ffc107 Yellow */
-    --severity-low: 196.1 93.3% 52%; /* #0dcaf0 Light Blue */
+    /* Severity Colors */
+    --severity-critical: 354 70% 53%; /* #FF4D4D Vibrant Red */
+    --severity-high: 28 100% 50%; /* #FFA500 Bright Orange */
+    --severity-medium: 47 100% 68%; /* #FFE15D Duck Yellow */
+    --severity-low: 197 80% 64%; /* #58CCED Aqua Blue */
     
     /* Chart colors (can keep defaults or adjust if charts are used extensively) */
     --chart-1: 12 76% 61%;
@@ -52,48 +52,47 @@ body {
     --chart-5: 27 87% 67%;
 
     /* Sidebar specific colors for a light theme */
-    --sidebar-background: 210 16% 95%; /* Slightly darker than main bg */
-    --sidebar-foreground: 210 10% 23%; /* Dark Gray */
-    --sidebar-primary: 217 82% 56%; /* Main primary */
-    --sidebar-primary-foreground: 0 0% 100%; /* White */
-    --sidebar-accent: 260 83% 65%; /* Main accent */
-    --sidebar-accent-foreground: 0 0% 100%; /* White */
-    --sidebar-border: 210 16% 88%; /* Border for sidebar elements */
-    --sidebar-ring: 217 82% 56%; /* Main primary for focus */
+    --sidebar-background: 47 100% 97%; /* Very Pale Yellow #FFF9E6 */
+    --sidebar-foreground: 210 10% 23%; 
+    --sidebar-primary: hsl(var(--primary));
+    --sidebar-primary-foreground: hsl(var(--primary-foreground));
+    --sidebar-accent: hsl(var(--accent));
+    --sidebar-accent-foreground: hsl(var(--accent-foreground));
+    --sidebar-border: 47 60% 90%; /* Pale Yellow Border #FFF2C9 */
+    --sidebar-ring: hsl(var(--ring));
   }
 
   .dark {
-    /* Keeping dark mode, but primary theme is light. Adjust if dark mode is critical. */
-    --background: 210 10% 15%;
+    --background: 215 19% 16%; /* #222831 */
     --foreground: 210 17% 90%;
 
-    --card: 210 10% 12%;
+    --card: 217 10% 25%; /* #393E46 */
     --card-foreground: 210 17% 90%;
 
-    --popover: 210 10% 12%;
+    --popover: 217 10% 25%;
     --popover-foreground: 210 17% 90%;
 
-    --primary: 217 82% 62%; /* Lighter blue for dark mode */
-    --primary-foreground: 210 10% 5%; /* Darker text for contrast */
+    --primary: 217 82% 66%; /* Lighter Blue for dark mode */
+    --primary-foreground: 210 10% 10%; /* Darker text for contrast */
 
-    --secondary: 210 10% 25%;
-    --secondary-foreground: 210 17% 90%;
+    --secondary: 197 80% 70%; /* Brighter Aqua Blue #72D9F2 */
+    --secondary-foreground: 210 10% 10%; /* Dark text for Aqua */
 
-    --muted: 210 10% 22%;
-    --muted-foreground: 210 10% 55%;
+    --muted: 351 80% 60%; /* Darker/Vibrant Pink #FF66A2 */
+    --muted-foreground: 210 10% 70%;
 
-    --accent: 260 83% 70%; /* Lighter purple for dark mode */
-    --accent-foreground: 210 10% 5%;
+    --accent: 47 100% 75%; /* Brighter Duck Yellow #FFEA8A */
+    --accent-foreground: 210 10% 10%; /* Dark text for Yellow */
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 80% 65%; /* Vibrant Red #FF5252 */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 210 10% 30%;
-    --input: 210 10% 25%;
-    --ring: 217 82% 62%;
+    --border: 217 10% 35%;
+    --input: 217 10% 20%;
+    --ring: 217 82% 66%;
     
-    /* Severity Colors for dark mode - ensure they are defined if dark mode is used extensively with these */
-    /* For now, they will inherit from light mode or need specific dark mode versions if contrast is an issue */
+    /* Severity Colors for dark mode - inherit from light or define specific if needed */
+    /* Using same HSL definitions, appearance will naturally adjust with surrounding dark theme */
     
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -101,14 +100,14 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-    --sidebar-background: 210 10% 12%; /* Dark sidebar background */
-    --sidebar-foreground: 210 17% 90%; /* Light text */
-    --sidebar-primary: 217 82% 62%;
-    --sidebar-primary-foreground: 210 10% 5%;
-    --sidebar-accent: 260 83% 70%;
-    --sidebar-accent-foreground: 210 10% 5%;
-    --sidebar-border: 210 10% 20%;
-    --sidebar-ring: 217 82% 62%;
+    --sidebar-background: 215 19% 12%; /* #1C2027 */
+    --sidebar-foreground: 210 17% 90%; 
+    --sidebar-primary: hsl(var(--primary));
+    --sidebar-primary-foreground: hsl(var(--primary-foreground));
+    --sidebar-accent: hsl(var(--accent));
+    --sidebar-accent-foreground: hsl(var(--accent-foreground));
+    --sidebar-border: 215 19% 22%; /* #2F3642 */
+    --sidebar-ring: hsl(var(--ring));
   }
 }
 
