@@ -1,19 +1,10 @@
 import type { Metadata } from 'next';
-import { GeistSans } from 'next/font/google';
-import { GeistMono } from 'next/font/google';
+// Removed GeistSans and GeistMono imports from 'next/font/google'
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { ReportProvider } from '@/contexts/report-context';
 
-const geistSans = GeistSans({ 
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = GeistMono({ 
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+// Removed geistSans and geistMono font initializations
 
 export const metadata: Metadata = {
   title: 'ReportSafe - Vulnerability Reporting',
@@ -27,7 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      {/*
+        The className will now use Tailwind's default font-sans.
+        The var(--font-geist-sans) and var(--font-geist-mono) from the original body className
+        are removed as they are no longer defined by next/font.
+        globals.css still has `font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;`
+        so it will fall back to Arial, Helvetica, sans-serif.
+      */}
+      <body className="font-sans antialiased">
         <ReportProvider>
           {children}
           <Toaster />
